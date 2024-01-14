@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<DIEMCACHLY>
+
+@{
+    
+}
+
+@{
+    <form method="post" action="/CongNhan/ListCNCL">
+        <label for="diemcachly">Tên điểm cách ly</label>
+        <select id="diemcachly" name="diemcachly">
+                 @foreach (var item in Model)
+             {
+                <option value="@item.GetType().GetProperty("MaDiemCachLy").GetValue(item,
+                                null)">@item.GetType().GetProperty("TenDiemCachLy").GetValue(item, null)</option>
+              }
+        </select>
+          <input type="submit" name="Submit" value="Liệt Kê">
+    </form>
+}
